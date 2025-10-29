@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5 - L&M Mastermind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <script src="js/layout.js"></script>
+
+    <div class="flex">
+        <aside id="sidebar" class="hidden lg:block w-80 bg-white shadow-lg h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Module 5</h2>
+                <h3 class="text-lg font-semibold text-gray-600 mb-6">Property Management & Relationship Building</h3>
+                <div class="mb-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-700">Progress</span>
+                        <span id="progressText" class="text-sm text-blue-600">0/10</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progressBar" class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#" onclick="loadUnit('5.1'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.1">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.1 Creating an Accounts Ledger</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.2'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.2">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.2 Monthly Statements & Relationship Building</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.3'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.3">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.3 Maintenance Reporting & Contractor Sourcing</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.4'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.4">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.4 Utility & Council Tax Transfers</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.5'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.5">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.5 Building Landlord Relationships</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.6'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.6">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.6 Periodic Inspections & Reports</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.7'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.7">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.7 Inspection Reports & Renovation Planning</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.8'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.8">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.8 Managing Renovations & Contractors</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.9'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.9">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.9 Running Costs & Budget Control</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('5.10'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="5.10">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>5.10 Happy Landlord = Long-Term Landlord</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+        <button id="sidebarToggle" class="lg:hidden fixed top-20 left-4 z-40 bg-blue-600 text-white p-2 rounded-lg shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <main class="flex-1 p-8">
+            <div class="max-w-4xl mx-auto">
+                <div id="contentArea">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Module 5: Property Management & Relationship Building</h1>
+                    <p class="text-xl text-gray-600 mb-8">Master property management, build relationships, and keep landlords happy.</p>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <p class="text-gray-600 mb-4">Select a unit from the sidebar to begin learning.</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Video Content</h3>
+                                <p class="mt-1 text-sm text-gray-500">Access video lessons for each unit</p>
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Resources</h3>
+                                <p class="mt-1 text-sm text-gray-500">Download materials and templates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/modules.js"></script>
+    <script>
+        initModule('5', [
+            { id: '5.1', title: 'Creating an Accounts Ledger' },
+            { id: '5.2', title: 'Monthly Statements & Relationship Building' },
+            { id: '5.3', title: 'Maintenance Reporting & Contractor Sourcing' },
+            { id: '5.4', title: 'Utility & Council Tax Transfers + Running Costs' },
+            { id: '5.5', title: 'Building Landlord Relationships & Brand Value' },
+            { id: '5.6', title: 'Periodic Inspections & Reports' },
+            { id: '5.7', title: 'Inspection Reports (Template) & Renovation Planning' },
+            { id: '5.8', title: 'Managing Renovations & Contractors Effectively' },
+            { id: '5.9', title: 'Running Costs & Budget Control' },
+            { id: '5.10', title: 'Happy Landlord = Long-Term Landlord' }
+        ]);
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkAuth() && isApproved()) {
+                loadUnit('5.1');
+            }
+        });
+    </script>
+</body>
+</html>

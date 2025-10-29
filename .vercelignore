@@ -1,0 +1,6 @@
+coverage/
+pages/
+node_modules/
+*.test.*
+js/__tests__/
+

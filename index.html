@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty's Letting & Management (L&M) Guerrilla Business Mastermind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        
+        /* Navigation link styles */
+        .nav-link {
+            background-color: rgb(243 244 246);
+            color: rgb(55 65 81);
+        }
+        
+        .nav-link:hover {
+            background-color: rgb(229 231 235);
+        }
+        
+        .nav-link.active {
+            background-color: #244855;
+            color: white;
+            font-weight: 600;
+            animation: buttonPulse 0.5s ease-in-out;
+        }
+        
+        .nav-link-mobile {
+            background-color: rgb(243 244 246);
+            color: rgb(55 65 81);
+        }
+        
+        .nav-link-mobile:hover {
+            background-color: rgb(229 231 235);
+        }
+        
+        .nav-link-mobile.active {
+            background-color: #244855;
+            color: white;
+            font-weight: 600;
+            animation: buttonPulse 0.5s ease-in-out;
+        }
+        
+        /* Animation for active button */
+        @keyframes buttonPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Logo positioned at top right of hero section -->
+    <div class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
+        <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight px-2">Monty's Letting & Management</h1>
+                <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-3 sm:mb-4 leading-snug px-2">Guerrilla Business Mastermind</h2>
+                <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4">
+                    Master the art of property management and build your path to financial freedom through proven lettings and management strategies.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 px-4">
+                    <a href="register.html" class="bg-white text-[#244855] px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold hover:bg-gray-100 transition text-center text-sm sm:text-base">
+                        Get Started
+                    </a>
+                    <a href="#modules" class="bg-transparent border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold hover:bg-white hover:text-[#244855] transition text-center text-sm sm:text-base">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation (moved under hero) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <!-- Mobile menu button -->
+                    <button id="mobileMenuButton" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <!-- Desktop navigation -->
+                    <div class="hidden lg:flex items-center space-x-2">
+                        <a href="index.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="index.html">Home</a>
+                        <a href="module1.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module1.html">Module 1</a>
+                        <a href="module2.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module2.html">Module 2</a>
+                        <a href="module3.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module3.html">Module 3</a>
+                        <a href="module4.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module4.html">Module 4</a>
+                        <a href="module5.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module5.html">Module 5</a>
+                        <a href="module6.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module6.html">Module 6</a>
+                        <a href="module7.html" class="nav-link px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105" data-page="module7.html">Module 7</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="bg-[#244855] text-white px-3 py-2 sm:px-4 rounded-lg hover:bg-[#1a3540] transition text-sm sm:text-base">Login</a>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 py-2">
+                <div class="flex flex-col space-y-1">
+                    <a href="index.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="index.html">Home</a>
+                    <a href="module1.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module1.html">Module 1</a>
+                    <a href="module2.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module2.html">Module 2</a>
+                    <a href="module3.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module3.html">Module 3</a>
+                    <a href="module4.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module4.html">Module 4</a>
+                    <a href="module5.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module5.html">Module 5</a>
+                    <a href="module6.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module6.html">Module 6</a>
+                    <a href="module7.html" class="nav-link-mobile px-4 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out transform" data-page="module7.html">Module 7</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Content Layout -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Sidebar -->
+                <aside class="lg:col-span-3">
+                    <div class="bg-white rounded-xl shadow-md p-4 mb-6">
+                        <div class="w-full aspect-square bg-[#F4F7F5] rounded-lg flex items-center justify-center overflow-hidden">
+                            <img id="profileImage" class="w-full h-full object-cover hidden" alt="Profile">
+                            <span id="profilePlaceholder" class="text-gray-500 font-semibold">Monty photo 1</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 sm:space-y-3" id="socialButtons">
+                        <a id="btnYoutube" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">Youtube</a>
+                        <a id="btnFacebook" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">FaceBook</a>
+                        <a id="btnInstagram" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">Instagram</a>
+                        <a id="btnTiktok" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">Tiktok</a>
+                        <a id="btnLinktree" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">LinkTree</a>
+                    </div>
+                </aside>
+
+                <!-- Main content card -->
+                <div class="lg:col-span-9">
+                    <div class="bg-white rounded-xl shadow-md p-4 sm:p-6">
+                        <div class="border-b pb-2 sm:pb-3 mb-3 sm:mb-4">
+                            <div class="text-xs sm:text-sm font-semibold text-gray-500">HOME</div>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 text-center mb-3 sm:mb-4">WELCOME!</h3>
+                        <div class="w-full flex justify-center">
+                            <div id="homeVideoContainer" class="w-full md:w-4/5 border-8 sm:border-[16px] lg:border-[64px] border-[#eaeaea] rounded-xl sm:rounded-2xl shadow-xl overflow-hidden" style="box-sizing: content-box;">
+                                <div class="bg-gray-200 rounded-lg sm:rounded-xl aspect-video flex items-center justify-center">
+                                    <span class="text-gray-500 font-semibold text-sm sm:text-base">Home page Video 1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Unit Content Area (same height as video) -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="hidden lg:block lg:col-span-3"></div>
+                <div class="lg:col-span-9">
+                    <div class="w-full flex justify-center">
+                        <div class="bg-gray-200 border-8 sm:border-[16px] lg:border-[64px] border-[#eaeaea] rounded-2xl overflow-hidden mb-10 shadow-[0_8px_16px_rgba(0,0,0,0.15),0_4px_8px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.5)] w-full md:w-4/5" style="box-sizing: content-box; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);">
+                            <div class="aspect-[64/27] p-6 flex items-center justify-center">
+                                <div id="homeTextBlock" class="text-lg text-gray-800 text-center w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden mb-10 sm:mb-16">
+                        <div class="w-full">
+                            <div id="homeVideo2Container" class="aspect-video bg-gray-200 flex items-center justify-center rounded-lg sm:rounded-2xl border-8 sm:border-[16px] lg:border-[64px] border-[#eaeaea] shadow-xl overflow-hidden" style="box-sizing: content-box;">
+                            <span class="text-gray-500 font-semibold text-sm sm:text-base">Home page Video 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4 px-4">Course Overview</h2>
+                <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-6">
+                    A comprehensive 7-module mastermind program designed to transform you into a successful lettings and management business owner.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8" id="modules">
+                <!-- Module Cards -->
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module1.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 1</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Foundation & Financial Freedom Roadmap</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Build your foundation and create a clear roadmap to financial freedom through property management.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">6 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module2.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 2</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Market Understanding & Property Strategy</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Understand the market, property types, and develop successful management strategies.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">9 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module3.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 3</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Business Setup & Compliance</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Set up your business correctly with proper compliance and foundational systems.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">7 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module4.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 4</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Client Acquisition & Lettings Operations</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Learn how to acquire landlords, handle properties, and secure quality tenants.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">8 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module5.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 5</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Property Management & Relationships</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Master property management, build relationships, and keep landlords happy.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">10 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module6.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 6</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">End of Tenancy & Renewals</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Handle end of tenancy professionally and retain landlords effectively.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">8 Units</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer" onclick="window.location='module7.html'">
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#244855] mb-2 sm:mb-3">Module 7</h3>
+                    <h4 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Scaling & Portfolio Growth</h4>
+                    <p class="text-sm sm:text-base text-gray-600">Scale your business and achieve financial freedom through growth strategies.</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-3">8 Units</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="comprehensive-footer" class="bg-gradient-to-b from-[#244855] to-black text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Legal & Compliance Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal & Compliance</h3>
+                    <ul class="space-y-2">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="cookie-policy.html" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html" class="text-gray-400 hover:text-white transition">Legal Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Policies -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Policies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="accessibility.html" class="text-gray-400 hover:text-white transition">Accessibility Statement</a></li>
+                        <li><a href="complaints.html" class="text-gray-400 hover:text-white transition">Complaints Procedure</a></li>
+                        <li><a href="aml-policy.html" class="text-gray-400 hover:text-white transition">Anti-Money Laundering Policy</a></li>
+                        <li><a href="modern-slavery.html" class="text-gray-400 hover:text-white transition">Modern Slavery Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition">Login</a></li>
+                        <li><a href="register.html" class="text-gray-400 hover:text-white transition">Register</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-gray-400 mb-2">The Streets of London</p>
+                    <p class="text-gray-400 mb-2">
+                        <a href="mailto:thestreetsoflondon112@gmail.com" class="hover:text-white transition">thestreetsoflondon112@gmail.com</a>
+                    </p>
+                    <p class="text-gray-400 text-sm">England and Wales</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Monty's Letting & Management Mastermind. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                        <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+                        <span>•</span>
+                        <a href="terms.html" class="hover:text-white transition">Terms</a>
+                        <span>•</span>
+                        <a href="cookie-policy.html" class="hover:text-white transition">Cookies</a>
+                        <span>•</span>
+                        <a href="accessibility.html" class="hover:text-white transition">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Navbar logo renderer: prefers admin/localStorage logo, then assets/logo.png, then assets/logo.svg
+        (function renderNavbarLogo(){
+            try {
+                const logoEl = document.getElementById('siteLogo');
+                if (!logoEl) return;
+                const storedLogo = JSON.parse(localStorage.getItem('siteLogo')) || {};
+                const profileImage = JSON.parse(localStorage.getItem('profileImage')) || {};
+                const src = storedLogo.dataUrl || storedLogo.url || profileImage.dataUrl || profileImage.url;
+                const defaultPng = 'assets/logo.png';
+                const defaultSvg = 'assets/logo.svg';
+
+                if (src) {
+                    logoEl.src = src;
+                    // If provided URL fails, gracefully fall back to project assets
+                    logoEl.onerror = function(){
+                        logoEl.onerror = null;
+                        logoEl.src = defaultPng;
+                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                    };
+                } else {
+                    // Try png first (so you can drop in a file without code changes), then svg
+                    logoEl.src = defaultPng;
+                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                }
+            } catch (e) {}
+        })();
+
+        // Render saved hero video (from admin > Home Page Videos)
+        (function renderHomeVideo() {
+            try {
+                const container = document.getElementById('homeVideoContainer');
+                if (!container) return;
+                const settings = JSON.parse(localStorage.getItem('videoSettings')) || {};
+                const url = settings.heroVideo;
+                if (!url) return;
+
+                let embed = '';
+                const u = new URL(url);
+                const host = u.hostname.toLowerCase();
+                if (host.includes('youtube.com') || host.includes('youtu.be')) {
+                    const id = host.includes('youtu.be') ? u.pathname.slice(1) : u.searchParams.get('v');
+                    if (id) embed = `<iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>`;
+                } else if (host.includes('vimeo.com')) {
+                    const id = u.pathname.replace('/', '');
+                    if (id) embed = `<iframe class="w-full aspect-video rounded-xl" src="https://player.vimeo.com/video/${id}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+                }
+                if (!embed) {
+                    embed = `<a class="block text-[#244855] underline" href="${url}" target="_blank" rel="noopener">Open Video</a>`;
+                }
+                container.innerHTML = embed;
+            } catch (e) {
+                // Silently ignore if malformed
+            }
+        })();
+
+        // Render Video 2 if configured
+        (function renderVideo2(){
+            try {
+                const container = document.getElementById('homeVideo2Container');
+                if (!container) return;
+                const settings = JSON.parse(localStorage.getItem('videoSettings')) || {};
+                const url = settings.video2;
+                if (!url) return;
+
+                let embed = '';
+                const u = new URL(url);
+                const host = u.hostname.toLowerCase();
+                if (host.includes('youtube.com') || host.includes('youtu.be')) {
+                    const id = host.includes('youtu.be') ? u.pathname.slice(1) : u.searchParams.get('v');
+                    if (id) embed = `<iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>`;
+                } else if (host.includes('vimeo.com')) {
+                    const id = u.pathname.replace('/', '');
+                    if (id) embed = `<iframe class="w-full aspect-video rounded-2xl" src="https://player.vimeo.com/video/${id}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+                }
+                if (!embed) {
+                    embed = `<a class="block text-[#244855] underline" href="${url}" target="_blank" rel="noopener">Open Video 2</a>`;
+                }
+                container.innerHTML = embed;
+            } catch (e) {}
+        })();
+
+        // Wire Social Links from admin storage
+        (function wireSocialLinks() {
+            try {
+                const links = JSON.parse(localStorage.getItem('socialLinks')) || {};
+                const setHref = (id, url) => { const el = document.getElementById(id); if (el && url) el.href = url; };
+                setHref('btnYoutube', links.youtube);
+                setHref('btnFacebook', links.facebook);
+                setHref('btnInstagram', links.instagram);
+                setHref('btnTiktok', links.tiktok);
+                setHref('btnLinktree', links.linktree);
+            } catch (e) {}
+        })();
+
+        // Render profile image if saved
+        (function renderProfileImage(){
+            try {
+                const stored = JSON.parse(localStorage.getItem('profileImage')) || {};
+                const img = document.getElementById('profileImage');
+                const ph = document.getElementById('profilePlaceholder');
+                const src = stored.dataUrl || stored.url;
+                if (src && img) {
+                    img.src = src;
+                    img.classList.remove('hidden');
+                    if (ph) ph.classList.add('hidden');
+                }
+            } catch (e) {}
+        })();
+
+        // Render selected unit content (or custom content) on home page
+        (function renderHomeExtras(){
+            try {
+                const settings = JSON.parse(localStorage.getItem('videoSettings')) || {};
+                const textEl = document.getElementById('homeTextBlock');
+                if (!textEl) return;
+                
+                if (settings.homeUnitContent) {
+                    textEl.innerHTML = settings.homeUnitContent;
+                } else {
+                    textEl.innerHTML = '';
+                }
+            } catch (e) {}
+        })();
+
+        // Mobile menu toggle
+        (function initMobileMenu() {
+            const menuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
+        })();
+
+        // Set active navigation link based on current page
+        (function setActiveNavLink() {
+            try {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const allLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+                
+                allLinks.forEach(link => {
+                    const linkPage = link.getAttribute('data-page');
+                    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            } catch (e) {}
+        })();
+    </script>
+</body>
+</html>

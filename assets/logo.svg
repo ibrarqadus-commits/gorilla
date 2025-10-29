@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <defs>
+    <style>
+      .title { font: 900 72px 'Poppins', Arial, sans-serif; }
+      .subtitle { font: 800 48px 'Poppins', Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect x="6" y="6" width="888" height="288" rx="24" ry="24" fill="#ffffff" stroke="#0f172a" stroke-width="12"/>
+  <g transform="translate(40,40)">
+    <text class="title" x="0" y="85" fill="#0f172a">THE STREETS</text>
+    <text class="title" x="0" y="165" fill="#0f172a">OF LONDON</text>
+    <text class="title" x="640" y="165" fill="#b91c1c">W1</text>
+    <line x1="0" y1="190" x2="820" y2="190" stroke="#0f172a" stroke-width="8"/>
+    <text class="subtitle" x="0" y="250" fill="#b91c1c">PROPERTY DEALS</text>
+  </g>
+</svg>
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6 - L&M Mastermind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <script src="js/layout.js"></script>
+
+    <div class="flex">
+        <aside id="sidebar" class="hidden lg:block w-80 bg-white shadow-lg h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Module 6</h2>
+                <h3 class="text-lg font-semibold text-gray-600 mb-6">End of Tenancy, Renewals & Compliance</h3>
+                <div class="mb-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-700">Progress</span>
+                        <span id="progressText" class="text-sm text-blue-600">0/8</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progressBar" class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#" onclick="loadUnit('6.1'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.1">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.1 End of Tenancy Process</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.2'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.2">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.2 Landlord Retention vs Agent Switching</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.3'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.3">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.3 Remarketing & Avoiding Void Periods</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.4'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.4">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.4 Securing New Tenants (Rinse & Repeat)</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.5'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.5">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.5 Tenant Checkout, Inventory & Handover</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.6'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.6">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.6 Repairs, Cleaning & Re-Letting Preparation</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.7'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.7">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.7 Deposit Return & Closing Utilities</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('6.8'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="6.8">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>6.8 Updating Landlords with Reports & Invoices</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+        <button id="sidebarToggle" class="lg:hidden fixed top-20 left-4 z-40 bg-blue-600 text-white p-2 rounded-lg shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <main class="flex-1 p-8">
+            <div class="max-w-4xl mx-auto">
+                <div id="contentArea">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Module 6: End of Tenancy, Renewals & Compliance</h1>
+                    <p class="text-xl text-gray-600 mb-8">Handle end of tenancy professionally and retain landlords effectively.</p>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <p class="text-gray-600 mb-4">Select a unit from the sidebar to begin learning.</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Video Content</h3>
+                                <p class="mt-1 text-sm text-gray-500">Access video lessons for each unit</p>
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Resources</h3>
+                                <p class="mt-1 text-sm text-gray-500">Download materials and templates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/modules.js"></script>
+    <script>
+        initModule('6', [
+            { id: '6.1', title: 'End of Tenancy Process' },
+            { id: '6.2', title: 'Landlord Retention vs Agent Switching' },
+            { id: '6.3', title: 'Remarketing & Avoiding Void Periods' },
+            { id: '6.4', title: 'Securing New Tenants (Rinse & Repeat Model)' },
+            { id: '6.5', title: 'Tenant Checkout, Inventory & Handover' },
+            { id: '6.6', title: 'Repairs, Cleaning & Re-Letting Preparation' },
+            { id: '6.7', title: 'Deposit Return & Closing Utilities' },
+            { id: '6.8', title: 'Updating Landlords with Reports & Invoices' }
+        ]);
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkAuth() && isApproved()) {
+                loadUnit('6.1');
+            }
+        });
+    </script>
+</body>
+</html>

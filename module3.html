@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3 - L&M Mastermind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="hidden lg:block w-80 bg-white shadow-lg h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Module 3</h2>
+                <h3 class="text-lg font-semibold text-gray-600 mb-6">Business Setup & Compliance Foundations</h3>
+                
+                <div class="mb-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-700">Progress</span>
+                        <span id="progressText" class="text-sm text-blue-600">0/7</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progressBar" class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <nav class="space-y-2">
+                    <a href="#" onclick="loadUnit('3.1'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.1">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.1 Creating Your Limited Company</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.2'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.2">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.2 Securing Domain & Website Setup</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.3'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.3">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.3 Registering with TDS & Ombudsman</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.4'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.4">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.4 Admin Sorted: T&Cs & Templates</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.5'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.5">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.5 Service Provider Network</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.6'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.6">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.6 Legislation, Tax & Golden Opportunity</span>
+                    </a>
+                    <a href="#" onclick="loadUnit('3.7'); return false;" class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition unit-link" data-unit="3.7">
+                        <span class="mr-3 text-gray-400">○</span>
+                        <span>3.7 Boost: Ready for First Landlord?</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Mobile sidebar toggle -->
+        <button id="sidebarToggle" class="lg:hidden fixed top-20 left-4 z-40 bg-blue-600 text-white p-2 rounded-lg shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div class="max-w-4xl mx-auto">
+                <div id="contentArea">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Module 3: Business Setup & Compliance Foundations</h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Set up your business correctly with proper compliance and foundational systems.
+                    </p>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <p class="text-gray-600 mb-4">Select a unit from the sidebar to begin learning.</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Video Content</h3>
+                                <p class="mt-1 text-sm text-gray-500">Access video lessons for each unit</p>
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-900">Resources</h3>
+                                <p class="mt-1 text-sm text-gray-500">Download materials and templates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/layout.js"></script>
+    <script>
+        initModule('3', [
+            { id: '3.1', title: 'Creating Your Limited Company' },
+            { id: '3.2', title: 'Securing Domain Name & Website Setup' },
+            { id: '3.3', title: 'Registering with TDS & The Property Ombudsman' },
+            { id: '3.4', title: 'Admin Sorted: Internal T&Cs, Tenancy Agreements, Templates, Signatures' },
+            { id: '3.5', title: 'Service Provider Network' },
+            { id: '3.6', title: 'New Legislation, Investment Numbers & Taxes – Golden Opportunity' },
+            { id: '3.7', title: 'Boost: Are You Ready to Onboard Your First Landlord?' }
+        ]);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkAuth() && isApproved()) {
+                loadUnit('3.1');
+            }
+        });
+    </script>
+</body>
+</html>
