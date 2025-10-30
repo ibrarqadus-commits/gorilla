@@ -58,9 +58,9 @@
 </head>
 <body class="bg-gray-50">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative">
+    <section id="heroSection" class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative">
         <!-- Logo anchored to the hero only (scrolls with hero) -->
-        <div class="absolute top-2 right-2 sm:top-4 sm:right-4 z-[20] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
+        <div id="heroLogoWrapper" class="absolute top-2 right-2 sm:top-4 sm:right-4 z-[20] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">
             <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -375,6 +375,23 @@
             } catch (e) {
                 // Silently ignore if malformed
             }
+        })();
+
+        // Hide hero logo once hero section scrolls out of view
+        (function handleHeroLogoVisibility(){
+            try {
+                const hero = document.getElementById('heroSection');
+                const logoWrapper = document.getElementById('heroLogoWrapper');
+                if (!hero || !logoWrapper || !('IntersectionObserver' in window)) return;
+                const observer = new IntersectionObserver(([entry]) => {
+                    if (entry && entry.isIntersecting) {
+                        logoWrapper.classList.remove('opacity-0', 'pointer-events-none');
+                    } else {
+                        logoWrapper.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }, { threshold: 0 });
+                observer.observe(hero);
+            } catch (e) {}
         })();
 
         // Render Video 2 if configured
