@@ -59,9 +59,11 @@
 <body class="bg-gray-50">
     <!-- Hero Section -->
     <section id="heroSection" class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative overflow-hidden">
-        <!-- Logo anchored to the hero only (scrolls with hero) -->
-        <div id="heroLogoWrapper" class="absolute top-2 right-2 sm:top-4 sm:right-4 z-[20] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">
-            <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
+        <!-- Logo constrained to hero using a sticky container so it scrolls only within hero -->
+        <div class="absolute inset-0 flex justify-end pointer-events-none">
+            <div id="heroLogoWrapper" class="sticky top-2 sm:top-4 mr-2 sm:mr-4 z-[20] pointer-events-auto bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">
+                <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
+            </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center">
