@@ -57,13 +57,12 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Logo positioned at top right of hero section -->
-    <div class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
-        <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
-    </div>
-
     <!-- Hero Section -->
     <section class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative">
+        <!-- Logo anchored to the hero only (scrolls with hero) -->
+        <div class="absolute top-2 right-2 sm:top-4 sm:right-4 z-[20] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
+            <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
+        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight px-2">Monty's Letting & Management</h1>
