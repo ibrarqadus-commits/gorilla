@@ -54,6 +54,24 @@
                 transform: scale(1);
             }
         }
+
+        /* Social links panel */
+        .social-links-container {
+            background: linear-gradient(180deg, #f7f8fc 0%, #eef0f5 100%);
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-links-container a {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .social-links-container a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -138,7 +156,7 @@
                             <span id="profilePlaceholder" class="text-gray-500 font-semibold">Monty photo 1</span>
                         </div>
                     </div>
-                    <div class="space-y-2 sm:space-y-3" id="socialButtons">
+                    <div class="social-links-container rounded-xl" id="socialButtons">
                         <a id="btnYoutube" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">Youtube</a>
                         <a id="btnFacebook" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">FaceBook</a>
                         <a id="btnInstagram" class="block text-center w-full bg-indigo-100 hover:bg-indigo-200 text-indigo-800 font-semibold py-2.5 sm:py-3 rounded-xl transition text-sm sm:text-base" href="#" target="_blank" rel="noopener">Instagram</a>
