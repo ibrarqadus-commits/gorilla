@@ -57,14 +57,13 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Fixed top-right logo to match Module 1 layout -->
+    <div class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
+        <img id="siteLogoTopRight" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
+    </div>
+
     <!-- Hero Section -->
-    <section id="heroSection" class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative overflow-hidden">
-        <!-- Logo constrained to hero using a sticky container so it scrolls only within hero -->
-        <div class="absolute inset-0 flex justify-end pointer-events-none">
-            <div id="heroLogoWrapper" class="sticky top-2 sm:top-4 mr-2 sm:mr-4 z-[20] pointer-events-auto bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">
-                <img id="siteLogo" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
-            </div>
-        </div>
+    <section id="heroSection" class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[30vh] sm:h-[36vh] flex items-center py-8 sm:py-0 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="text-center">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight px-2">Monty's Letting & Management</h1>
@@ -345,6 +344,31 @@
                     };
                 } else {
                     // Prefer svg first for best clarity, then fall back to png
+                    logoEl.src = defaultSvg;
+                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
+                }
+            } catch (e) {}
+        })();
+
+        // Top-right logo renderer (match module pages)
+        (function renderTopRightLogo(){
+            try {
+                const logoEl = document.getElementById('siteLogoTopRight');
+                if (!logoEl) return;
+                const storedLogo = JSON.parse(localStorage.getItem('siteLogo')) || {};
+                const profileImage = JSON.parse(localStorage.getItem('profileImage')) || {};
+                const src = storedLogo.dataUrl || storedLogo.url || profileImage.dataUrl || profileImage.url;
+                const defaultSvg = 'assets/logo.svg';
+                const defaultPng = 'assets/logo.png';
+
+                if (src) {
+                    logoEl.src = src;
+                    logoEl.onerror = function(){
+                        logoEl.onerror = null;
+                        logoEl.src = defaultSvg;
+                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
+                    };
+                } else {
                     logoEl.src = defaultSvg;
                     logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                 }
