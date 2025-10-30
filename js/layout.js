@@ -11,10 +11,10 @@
         }
 
         var headerHtml = '' +
-            '<div class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">' +
+            '<div id="siteLogoFixed" class="fixed top-2 right-2 sm:top-4 sm:right-4 z-40 bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">' +
             '  <img id="siteLogoTopRight" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />' +
             '</div>' +
-            '<section class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[25vh] sm:h-[30vh] md:h-[36vh] flex items-center py-6 sm:py-0">' +
+            '<section id="heroSection" class="bg-gradient-to-b from-[#244855] to-black text-white min-h-[25vh] sm:h-[30vh] md:h-[36vh] flex items-center py-6 sm:py-0">' +
             '  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">' +
             '    <div class="text-center">' +
             '      <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 leading-tight px-2">Monty\'s Letting & Management</h1>' +
@@ -121,20 +121,58 @@
                 var storedLogo = JSON.parse(localStorage.getItem('siteLogo')) || {};
                 var profileImage = JSON.parse(localStorage.getItem('profileImage')) || {};
                 var src = storedLogo.dataUrl || storedLogo.url || profileImage.dataUrl || profileImage.url;
-                var defaultPng = 'assets/logo.png';
                 var defaultSvg = 'assets/logo.svg';
+                var defaultPng = 'assets/logo.png';
 
                 if (src) {
                     logoEl.src = src;
                     logoEl.onerror = function(){
                         logoEl.onerror = null;
-                        logoEl.src = defaultPng;
-                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                        logoEl.src = defaultSvg;
+                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                     };
                 } else {
-                    logoEl.src = defaultPng;
-                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                    logoEl.src = defaultSvg;
+                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                 }
+            } catch (e) {}
+        })();
+
+        // Show fixed top-right logo only when hero is visible and not overlapping navbar
+        (function toggleFixedLogoWithHero(){
+            try {
+                var hero = document.getElementById('heroSection');
+                var fixedLogo = document.getElementById('siteLogoFixed');
+                var nav = document.querySelector('nav');
+                if (!hero || !fixedLogo) return;
+
+                function updateVisibility() {
+                    var rect = hero.getBoundingClientRect();
+                    var navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                    var intersects = rect.bottom > 0 && rect.top < window.innerHeight;
+                    var withinHeroOnly = rect.bottom > Math.max(0, navHeight);
+                    var show = intersects && withinHeroOnly;
+                    fixedLogo.classList.toggle('opacity-0', !show);
+                    fixedLogo.classList.toggle('pointer-events-none', !show);
+                }
+
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries){
+                        var entry = entries && entries[0];
+                        var heroVisible = !!(entry && entry.isIntersecting);
+                        var rect = hero.getBoundingClientRect();
+                        var navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                        var withinHeroOnly = rect.bottom > Math.max(0, navHeight);
+                        var show = heroVisible && withinHeroOnly;
+                        fixedLogo.classList.toggle('opacity-0', !show);
+                        fixedLogo.classList.toggle('pointer-events-none', !show);
+                    }, { threshold: 0 });
+                    observer.observe(hero);
+                }
+
+                window.addEventListener('scroll', updateVisibility, { passive: true });
+                window.addEventListener('resize', updateVisibility);
+                updateVisibility();
             } catch (e) {}
         })();
         
