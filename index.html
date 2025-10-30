@@ -58,7 +58,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- Fixed top-right logo to match Module 1 layout -->
-    <div class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg">
+    <div id="siteLogoFixed" class="fixed top-2 right-2 sm:top-4 sm:right-4 z-[9999] bg-white/90 backdrop-blur-sm rounded-lg p-1 sm:p-2 shadow-lg transition-opacity duration-200">
         <img id="siteLogoTopRight" src="assets/logo.svg" alt="Logo" class="h-10 w-auto sm:h-16 md:h-[72px]" />
     </div>
 
@@ -347,6 +347,23 @@
                     logoEl.src = defaultSvg;
                     logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                 }
+            } catch (e) {}
+        })();
+
+        // Show fixed top-right logo only when hero is visible
+        (function toggleFixedLogoWithHero(){
+            try {
+                const hero = document.getElementById('heroSection');
+                const fixedLogo = document.getElementById('siteLogoFixed');
+                if (!hero || !fixedLogo || !('IntersectionObserver' in window)) return;
+                const observer = new IntersectionObserver(([entry]) => {
+                    if (entry && entry.isIntersecting) {
+                        fixedLogo.classList.remove('opacity-0', 'pointer-events-none');
+                    } else {
+                        fixedLogo.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }, { threshold: 0 });
+                observer.observe(hero);
             } catch (e) {}
         })();
 
