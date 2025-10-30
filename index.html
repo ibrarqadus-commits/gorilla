@@ -72,6 +72,21 @@
             transform: translateY(-2px);
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
         }
+
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .social-links-container {
+                padding: 12px;
+                gap: 8px;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            }
+            .social-links-container a {
+                font-size: 0.95rem; /* slightly larger for touch */
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+                border-radius: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
