@@ -331,21 +331,21 @@
                 const storedLogo = JSON.parse(localStorage.getItem('siteLogo')) || {};
                 const profileImage = JSON.parse(localStorage.getItem('profileImage')) || {};
                 const src = storedLogo.dataUrl || storedLogo.url || profileImage.dataUrl || profileImage.url;
-                const defaultPng = 'assets/logo.png';
                 const defaultSvg = 'assets/logo.svg';
+                const defaultPng = 'assets/logo.png';
 
                 if (src) {
                     logoEl.src = src;
-                    // If provided URL fails, gracefully fall back to project assets
+                    // If provided URL fails, gracefully fall back to project assets (prefer SVG for sharpness)
                     logoEl.onerror = function(){
                         logoEl.onerror = null;
-                        logoEl.src = defaultPng;
-                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                        logoEl.src = defaultSvg;
+                        logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                     };
                 } else {
-                    // Try png first (so you can drop in a file without code changes), then svg
-                    logoEl.src = defaultPng;
-                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultSvg; };
+                    // Prefer svg first for best clarity, then fall back to png
+                    logoEl.src = defaultSvg;
+                    logoEl.onerror = function(){ logoEl.onerror = null; logoEl.src = defaultPng; };
                 }
             } catch (e) {}
         })();
